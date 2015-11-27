@@ -3,7 +3,9 @@ class Entry < ActiveRecord::Base
 
   scope :existing, ->{ where(archived: false) }
   scope :archived, ->{ where(archived: true) }
-  scope :by_term, ->(term) { where('term = ? OR expanded_term = ?', term, term) }
+  scope :by_term, ->(term) {
+    where('lower(term) = ? OR lower(expanded_term) = ?', term.downcase, term.downcase)
+  }
 
   default_scope -> { order(term: :asc) }
 
