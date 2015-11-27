@@ -14,6 +14,8 @@ gem 'turbolinks'
 gem 'formtastic', '~> 3.1.2'
 gem 'formtastic-bootstrap', '~> 3.1.0'
 
+gem 'jbuilder'
+
 gem 'puma'
 
 group :development, :test do
