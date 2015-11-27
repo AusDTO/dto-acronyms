@@ -1,0 +1,39 @@
+<h1>
+  <% if entry.expanded_term.present? %>
+    <%= entry.expanded_term %>
+    <span class="acronym">(<%= entry.term %>)</span>
+  <% else %>
+    <%= entry.term %>
+  <% end %>
+
+  <% if entry.archived? %>
+    <span class="label label-danger">Archived</span>
+  <% end %>
+</h1>
+
+<div class="definition">
+  <% if entry.definition.present? %>
+    <%= simple_format presented_entry.definition_with_links %>
+  <% else %>
+    <p class="no-definition">
+      There's no definition for this term yet.
+      <% unless entry.archived? %>
+        You can <%= link_to "add it", edit_entry_path(entry) %>.
+      <% end %>
+    </p>
+  <% end %>
+</div>
+
+
+<div class="single-actions">
+  <% unless entry.archived? %>
+    <%= link_to "Edit this entry", edit_entry_path(entry) %>
+    <%= link_to "Archive this entry", entry_path(entry), method: :delete,
+                                                         class: 'delete',
+                                                         data: {
+                                                           confirm: "Are you sure? This can't be undone."
+                                                         } %>
+  <% end %>
+
+  <span class="last-update">Last updated <%= entry.updated_at.strftime("%-d %b %Y, %-I:%M%P") %></span>
+</div>

@@ -1,0 +1,16 @@
+<li>
+  <h3>
+    <%= link_to entry_path(entry) do %>
+      <% if entry.expanded_term.present? %>
+        <%= entry.expanded_term %>
+        <span class="acronym">(<%= entry.term %>)</span>
+      <% else %>
+        <%= entry.term %>
+      <% end %>
+
+      <% if entry.definition.blank? %>
+        <span class="no-definition">No definition</span>
+      <% end %>
+    <% end %>
+  </h3>
+</li>

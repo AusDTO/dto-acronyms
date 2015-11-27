@@ -1,0 +1,18 @@
+en:
+  formtastic:
+    labels:
+      entry:
+        term: Acronym
+        expanded_term: Full term
+    placeholders:
+      entry:
+        term: eg. DSS
+        expanded_term: eg. Digital Service Standard
+    hints:
+      entry:
+        expanded_term: Not required if the term isn't an acronym
+    actions:
+      entry:
+        cancel: "Cancel and go back"
+        create: "Create"
+        update: "Save"

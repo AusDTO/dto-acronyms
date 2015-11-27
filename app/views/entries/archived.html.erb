@@ -1,0 +1,11 @@
+<h1>Archived entries</h1>
+
+<% if entries.any? %>
+  <ul class="entries">
+    <%= render partial: 'entry', collection: entries %>
+  </ul>
+<% else %>
+  <p>There are no archived entries yet.</p>
+<% end %>
+
+<p class="archived"><%= link_to "View all entries", entries_path %></p>
