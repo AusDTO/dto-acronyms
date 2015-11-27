@@ -55,7 +55,9 @@ private
   helper_method :presented_entry
 
   def entries
-    @entries ||= Entry.existing
+    @entries ||= params[:term].present? ?
+                    Entry.existing.by_term(params[:term]) :
+                    Entry.existing
   end
   helper_method :entries
 
